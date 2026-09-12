@@ -1,4 +1,7 @@
 ﻿import ProjectCard from '../components/ProjectCard'
+import AboutSection from '../components/AboutSection'
+import SkillsSection from '../components/SkillsSection'
+import ContactSection from '../components/ContactSection'
 import { projects } from '../data/projects'
 
 const technologies = [
@@ -24,6 +27,7 @@ function HomePage() {
         <nav className="main-navigation" aria-label="Navegação principal">
           <a href="#inicio">Início</a>
           <a href="#projetos">Projetos</a>
+          <a href="#tecnologias">Tecnologias</a>
           <a href="#sobre">Sobre</a>
         </nav>
 
@@ -165,11 +169,18 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="anchor-section" id="sobre" aria-label="Sobre" />
-        <section className="anchor-section" id="contato" aria-label="Contato" />
+        <SkillsSection />
+
+        <AboutSection />
+        <ContactSection />
       </main>
     </div>
   )
 }
 
 export default HomePage
+
+
+
+
+

@@ -782,3 +782,21 @@
     grid-column: 1 / -1;
   }
 }
+
+.next-section h2,
+.skills-heading h2,
+.about-content > h2,
+.contact-heading h2 {
+  font-size: var(--section-title-size);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+@media (max-width: 600px) {
+  .next-section h2,
+  .skills-heading h2,
+  .about-content > h2,
+  .contact-heading h2 {
+    font-size: clamp(2.5rem, 12vw, 3.7rem);
+  }
+}

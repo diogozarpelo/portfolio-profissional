@@ -1,0 +1,234 @@
+﻿.about-section {
+  width: min(
+    calc(100% - (var(--page-padding) * 2)),
+    var(--page-width)
+  );
+  margin: 0 auto;
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: clamp(3rem, 8vw, 8rem);
+  border-top: 1px solid var(--color-line);
+}
+
+.about-visual {
+  position: sticky;
+  top: 7rem;
+}
+
+.portrait-frame {
+  position: relative;
+  overflow: hidden;
+  padding: 0.65rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.012)
+    ),
+    var(--color-surface);
+  box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.28);
+}
+
+.portrait-frame::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0.65rem;
+  content: '';
+  pointer-events: none;
+  border-radius: 0.95rem;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 58%,
+      rgba(4, 9, 8, 0.88) 100%
+    );
+}
+
+.portrait-frame img {
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  border-radius: 0.95rem;
+  object-fit: cover;
+  filter: saturate(0.8) contrast(1.04);
+}
+
+.portrait-caption {
+  position: absolute;
+  z-index: 2;
+  right: 1.5rem;
+  bottom: 1.45rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--color-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.portrait-caption > div:last-child {
+  text-align: right;
+}
+
+.portrait-caption span {
+  margin-bottom: 0.25rem;
+  display: block;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.51rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-statistics {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.about-statistics > div {
+  min-width: 0;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.about-statistics > div + div {
+  border-left: 1px solid var(--color-line);
+}
+
+.about-statistics strong {
+  display: block;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.about-statistics span {
+  margin-top: 0.35rem;
+  display: block;
+  color: var(--color-text-subtle);
+  font-size: 0.52rem;
+  line-height: 1.4;
+}
+
+.about-content > h2 {
+  max-width: 13ch;
+  margin: 1rem 0 2.2rem;
+  color: var(--color-text);
+  font-size: clamp(2.5rem, 5vw, 4.9rem);
+  font-weight: 710;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.about-copy {
+  max-width: 45rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4vw, 3rem);
+}
+
+.about-copy p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.professional-timeline {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--color-line);
+}
+
+.professional-timeline article {
+  padding: 1.65rem 0;
+  display: grid;
+  grid-template-columns: 2.8rem 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.timeline-index {
+  padding-top: 0.2rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+.timeline-label {
+  margin: 0 0 0.55rem;
+  color: var(--color-text-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.professional-timeline h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  letter-spacing: -0.025em;
+}
+
+.professional-timeline article div > p:not(.timeline-label) {
+  max-width: 39rem;
+  margin: 0.75rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.79rem;
+  line-height: 1.7;
+}
+
+.timeline-period {
+  margin-top: 0.9rem;
+  display: block;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-visual {
+    position: static;
+    width: min(100%, 30rem);
+  }
+
+  .about-content > h2 {
+    max-width: 15ch;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    width: calc(100% - 2.5rem);
+  }
+
+  .about-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content > h2 {
+    font-size: clamp(2.5rem, 12vw, 3.7rem);
+  }
+
+  .about-statistics > div {
+    padding: 0.85rem 0.45rem;
+  }
+
+  .professional-timeline article {
+    grid-template-columns: 2rem 1fr;
+  }
+}

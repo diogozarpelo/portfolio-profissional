@@ -16,6 +16,7 @@
   --font-mono: 'JetBrains Mono Variable', Consolas, monospace;
   --page-width: 1240px;
   --page-padding: clamp(1.25rem, 4vw, 3rem);
+  --section-title-size: clamp(2.5rem, 5vw, 4.8rem);
 
   font-family: var(--font-sans);
   color: var(--color-text);
@@ -115,3 +116,4 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
