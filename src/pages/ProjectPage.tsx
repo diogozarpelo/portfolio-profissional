@@ -1,11 +1,27 @@
 ﻿import { useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { findProjectBySlug } from '../data/projects'
+import { projectGalleries } from '../data/projectGalleries'
+import ProjectGallery from '../components/ProjectGallery'
 import './ProjectPage.css'
 
 function ProjectPage() {
   const { slug } = useParams()
   const project = slug ? findProjectBySlug(slug) : undefined
+  const galleryImages = project
+    ? [
+        {
+          src: project.image,
+          alt: project.imageAlt,
+          caption: `Visão principal de ${project.title}`,
+          format:
+            project.category === 'Aplicativo Android'
+              ? ('mobile' as const)
+              : ('desktop' as const),
+        },
+        ...(projectGalleries[project.slug] ?? []),
+      ]
+    : []
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
@@ -24,7 +40,7 @@ function ProjectPage() {
   }
 
   return (
-    <div className="project-page">
+    <div className={`project-page project-page-${project.slug}`}>
       <header className="project-page-header">
         <Link className="brand" to="/" aria-label="Voltar para a página inicial">
           <span className="brand-mark" aria-hidden="true">
@@ -117,13 +133,18 @@ function ProjectPage() {
           </div>
         </section>
 
+        <ProjectGallery
+          projectTitle={project.title}
+          images={galleryImages}
+        />
+
         <section className="project-stack-section">
           <div className="project-detail-heading">
             <span>02</span>
             <h2>Tecnologias utilizadas</h2>
           </div>
 
-          <ul className="project-stack-list">
+          <ul className={`project-stack-list project-stack-list-${project.technologies.length}`}> 
             {project.technologies.map((technology, index) => (
               <li key={technology}>
                 <span>{String(index + 1).padStart(2, '0')}</span>
@@ -147,3 +168,8 @@ function ProjectPage() {
 }
 
 export default ProjectPage
+
+
+
+
+
