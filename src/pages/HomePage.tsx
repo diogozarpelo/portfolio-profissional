@@ -87,7 +87,7 @@ function HomePage() {
             </h1>
 
             <p className="hero-description">
-              Desenvolvo produtos web e Android com foco em clareza,
+              Desenvolvo produtos web e aplicativos Android com foco em clareza,
               desempenho e soluções úteis para problemas reais.
             </p>
 

@@ -26,7 +26,7 @@ function AboutSection() {
         <div className="about-statistics" aria-label="Resumo profissional">
           <div>
             <strong>4</strong>
-            <span>Projetos públicos</span>
+            <span>Projetos no portfólio</span>
           </div>
           <div>
             <strong>40+</strong>

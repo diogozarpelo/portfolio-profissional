@@ -33,8 +33,8 @@ const skillGroups = [
   },
   {
     index: '06',
-    title: 'Infraestrutura',
-    description: 'Fundamentos para publicação, redes e ambientes modernos.',
+    title: 'Infraestrutura e integrações',
+    description: 'Publicação, redes, integrações e fluxos preparados para ambientes modernos.',
     technologies: ['AWS', 'DNS', 'Webhooks', 'Filas', 'Deploy'],
   },
 ]
