@@ -32,7 +32,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: 1px solid var(--color-line);
   border-left: 1px solid var(--color-line);
 }
@@ -138,16 +138,12 @@
     max-width: 40rem;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 620px) {
   .skills-section {
     width: calc(100% - 2.5rem);
   }
-
 
   .skills-grid {
     grid-template-columns: 1fr;
@@ -162,11 +158,7 @@
   }
 }
 
-
 @media (min-width: 961px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
   .skill-group ul {
     flex-wrap: nowrap;
