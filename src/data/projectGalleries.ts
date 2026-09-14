@@ -8,19 +8,19 @@
 export const projectGalleries: Record<string, GalleryImage[]> = {
   leadflow: [
     {
-      src: '/images/projects/leadflow/02-sectors.png',
+      src: '/images/projects/leadflow/02-sectors.webp',
       alt: 'Seção de setores atendidos no LeadFlow',
       caption: 'Apresentação responsiva dos setores e aplicações',
       format: 'desktop',
     },
     {
-      src: '/images/projects/leadflow/03-blog.png',
+      src: '/images/projects/leadflow/03-blog.webp',
       alt: 'Página de conteúdo do LeadFlow',
       caption: 'Área de conteúdo integrada à experiência institucional',
       format: 'desktop',
     },
     {
-      src: '/images/projects/leadflow/04-home-mobile.png',
+      src: '/images/projects/leadflow/04-home-mobile.webp',
       alt: 'Página inicial do LeadFlow em um dispositivo móvel',
       caption: 'Experiência adaptada para navegação em celulares',
       format: 'mobile',

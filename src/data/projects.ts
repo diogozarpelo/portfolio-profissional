@@ -25,7 +25,7 @@ export const projects: Project[] = [
       'Plataforma de captação, organização e entrega de leads criada com arquitetura full-stack e foco em confiabilidade.',
     description:
       'Uma solução white-label que transforma formulários e diferentes pontos de entrada em um fluxo estruturado de leads, com processamento assíncrono, simulação de integrações e uma base preparada para evolução.',
-    image: '/images/projects/leadflow-home.png',
+    image: '/images/projects/leadflow-home.webp',
     imageAlt: 'Página inicial responsiva do projeto LeadFlow',
     technologies: [
       'Laravel',
