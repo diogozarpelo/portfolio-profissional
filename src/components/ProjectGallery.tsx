@@ -12,6 +12,9 @@ function ProjectGallery({ projectTitle, images }: ProjectGalleryProps) {
   const [canScrollPrevious, setCanScrollPrevious] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(false)
   const galleryTrackRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
+  const modalTriggerRef = useRef<HTMLButtonElement | null>(null)
+  const isModalOpen = selectedIndex !== null
   const selectedImage =
     selectedIndex === null ? undefined : images[selectedIndex]
 
@@ -43,7 +46,7 @@ function ProjectGallery({ projectTitle, images }: ProjectGalleryProps) {
   }, [images.length, updateCarouselControls])
 
   useEffect(() => {
-    if (selectedIndex === null) {
+    if (!isModalOpen) {
       return
     }
 
@@ -52,19 +55,61 @@ function ProjectGallery({ projectTitle, images }: ProjectGalleryProps) {
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
+        event.preventDefault()
         setSelectedIndex(null)
+        return
       }
 
       if (event.key === 'ArrowLeft') {
+        event.preventDefault()
         setSelectedIndex((current) =>
           current === null ? null : (current - 1 + images.length) % images.length,
         )
+        return
       }
 
       if (event.key === 'ArrowRight') {
+        event.preventDefault()
         setSelectedIndex((current) =>
           current === null ? null : (current + 1) % images.length,
         )
+        return
+      }
+
+      if (event.key === 'Tab') {
+        const modal = modalRef.current
+
+        if (!modal) {
+          return
+        }
+
+        const focusableElements = Array.from(
+          modal.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+          ),
+        )
+
+        if (focusableElements.length === 0) {
+          return
+        }
+
+        const firstElement = focusableElements[0]
+        const lastElement = focusableElements[focusableElements.length - 1]
+        const activeElement = document.activeElement
+
+        if (!modal.contains(activeElement)) {
+          event.preventDefault()
+          firstElement.focus()
+          return
+        }
+
+        if (event.shiftKey && activeElement === firstElement) {
+          event.preventDefault()
+          lastElement.focus()
+        } else if (!event.shiftKey && activeElement === lastElement) {
+          event.preventDefault()
+          firstElement.focus()
+        }
       }
     }
 
@@ -73,8 +118,12 @@ function ProjectGallery({ projectTitle, images }: ProjectGalleryProps) {
     return () => {
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
+
+      window.requestAnimationFrame(() => {
+        modalTriggerRef.current?.focus()
+      })
     }
-  }, [images.length, selectedIndex])
+  }, [images.length, isModalOpen])
 
   function scrollGallery(direction: 'previous' | 'next') {
     const track = galleryTrackRef.current
@@ -144,7 +193,10 @@ function ProjectGallery({ projectTitle, images }: ProjectGalleryProps) {
               className={`gallery-card gallery-card-${image.format}`}
               type="button"
               key={image.src}
-              onClick={() => setSelectedIndex(index)}
+              onClick={(event) => {
+                modalTriggerRef.current = event.currentTarget
+                setSelectedIndex(index)
+              }}
               aria-label={`Ampliar imagem: ${image.caption}`}
             >
               <span className="gallery-image">
@@ -174,6 +226,7 @@ function ProjectGallery({ projectTitle, images }: ProjectGalleryProps) {
       {selectedImage && selectedIndex !== null && (
         <div
           className="gallery-modal"
+          ref={modalRef}
           role="dialog"
           aria-modal="true"
           aria-label={`Galeria de ${projectTitle}`}
