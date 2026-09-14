@@ -226,3 +226,15 @@
     grid-template-columns: 2rem 1fr;
   }
 }
+@media (min-width: 761px) and (max-width: 900px) {
+  .about-visual {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .about-content > h2 {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+}

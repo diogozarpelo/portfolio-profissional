@@ -183,3 +183,15 @@
     flex-wrap: nowrap;
   }
 }
+@media (min-width: 761px) and (max-width: 900px) {
+  .skills-heading {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .skills-heading h2,
+  .skills-heading > p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

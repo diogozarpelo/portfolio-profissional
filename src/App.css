@@ -856,3 +856,35 @@
     font-size: clamp(2.5rem, 12vw, 3.7rem);
   }
 }
+@media (min-width: 761px) and (max-width: 900px) {
+  .hero-content {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .availability {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hero-content h1,
+  .hero-description {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .projects-introduction {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .projects-introduction h2,
+  .projects-introduction > p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
