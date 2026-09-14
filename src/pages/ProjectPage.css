@@ -487,28 +487,6 @@
   text-wrap: balance;
 }
 
-.gallery-modal-content {
-  width: min(100%, 76rem);
-  max-height: 94dvh;
-  display: flex;
-  flex-direction: column;
-}
-
-.gallery-modal-image {
-  min-height: 0;
-  height: auto;
-  flex: 1 1 auto;
-  overflow: hidden;
-}
-
-.gallery-modal-image img,
-.gallery-modal-image-mobile img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: calc(94dvh - 7rem);
-  object-fit: contain;
-}
 
 @media (max-width: 960px) {
   .project-page-leiloes-retro-games .project-hero {
