@@ -108,6 +108,7 @@ function HomePage() {
                 rel="noreferrer"
               >
                 Ver GitHub
+                <span className="sr-only"> (abre em nova aba)</span>
                 <span aria-hidden="true">↗</span>
               </a>
             </div>

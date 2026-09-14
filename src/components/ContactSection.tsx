@@ -36,6 +36,7 @@ function ContactSection() {
             <span>
               <small>Perfil profissional</small>
               LinkedIn
+              <span className="sr-only"> (abre em nova aba)</span>
             </span>
             <strong aria-hidden="true">↗</strong>
           </a>
@@ -48,6 +49,7 @@ function ContactSection() {
             <span>
               <small>Código e projetos</small>
               GitHub
+              <span className="sr-only"> (abre em nova aba)</span>
             </span>
             <strong aria-hidden="true">↗</strong>
           </a>
