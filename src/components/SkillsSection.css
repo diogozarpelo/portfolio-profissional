@@ -20,10 +20,7 @@
   max-width: 13ch;
   margin: 1rem 0 0;
   color: var(--color-text);
-  font-size: clamp(2.5rem, 5vw, 4.9rem);
   font-weight: 710;
-  line-height: 0.98;
-  letter-spacing: -0.06em;
 }
 
 .skills-heading > p {
@@ -151,9 +148,6 @@
     width: calc(100% - 2.5rem);
   }
 
-  .skills-heading h2 {
-    font-size: clamp(2.5rem, 12vw, 3.7rem);
-  }
 
   .skills-grid {
     grid-template-columns: 1fr;
