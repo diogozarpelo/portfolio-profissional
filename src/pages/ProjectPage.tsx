@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { findProjectBySlug } from '../data/projects'
 import { projectGalleries } from '../data/projectGalleries'
 import ProjectGallery from '../components/ProjectGallery'
+import SiteFooter from '../components/SiteFooter'
 import './ProjectPage.css'
 
 function ProjectPage() {
@@ -40,7 +41,7 @@ function ProjectPage() {
   }
 
   return (
-    <div className={`project-page project-page-${project.slug}`}>
+    <div id="inicio" className={`project-page project-page-${project.slug}`}>
       <header className="project-page-header">
         <Link className="brand" to="/" aria-label="Voltar para a página inicial">
           <span className="brand-mark" aria-hidden="true">
@@ -163,6 +164,8 @@ function ProjectPage() {
           </Link>
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   )
 }

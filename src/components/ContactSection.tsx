@@ -1,4 +1,5 @@
-﻿import './ContactSection.css'
+﻿import SiteFooter from './SiteFooter'
+import './ContactSection.css'
 
 function ContactSection() {
   return (
@@ -53,23 +54,7 @@ function ContactSection() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <a className="brand" href="#inicio" aria-label="Voltar ao início">
-          <span className="brand-mark" aria-hidden="true">
-            DZ
-          </span>
-          <span className="brand-name">Diogo Zarpelão</span>
-        </a>
-
-        <p>
-          Desenvolvedor de Software/Web Júnior · Itapuí, SP · Brasil
-        </p>
-
-        <a href="#inicio">
-          Voltar ao topo
-          <span aria-hidden="true">↑</span>
-        </a>
-      </footer>
+      <SiteFooter />
     </>
   )
 }

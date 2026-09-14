@@ -371,7 +371,7 @@
 }
 
 .project-next-step {
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
   padding: clamp(4rem, 8vw, 7rem);
   overflow: hidden;
   border: 1px solid var(--color-line-strong);
