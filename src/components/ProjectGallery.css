@@ -34,7 +34,6 @@
 
 .project-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -61,6 +60,7 @@
 }
 
 .gallery-image {
+  height: 22rem;
   min-height: 22rem;
   padding: 1.2rem;
   display: grid;
@@ -246,14 +246,6 @@
   .project-gallery-heading > p {
     max-width: 40rem;
   }
-
-  .project-gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-image {
-    min-height: 26rem;
-  }
 }
 
 @media (max-width: 600px) {
@@ -266,6 +258,7 @@
   }
 
   .gallery-image {
+    height: 19rem;
     min-height: 19rem;
     padding: 0.8rem;
   }
@@ -298,52 +291,15 @@
   }
 }
 
-.gallery-summary {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.gallery-summary > p {
-  margin: 0;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  line-height: 1.75;
-}
-
-.gallery-carousel-controls {
-  display: flex;
-  gap: 0.55rem;
-}
-
-.gallery-carousel-controls button {
-  width: 2.75rem;
-  height: 2.75rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--color-line-strong);
-  border-radius: 0.7rem;
-  color: var(--color-accent);
-  background: rgba(255, 255, 255, 0.025);
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition:
-    border-color 180ms ease,
-    background-color 180ms ease,
-    transform 180ms ease;
-}
-
-.gallery-carousel-controls button:hover {
-  transform: translateY(-0.15rem);
-  border-color: rgba(116, 242, 189, 0.4);
-  background: var(--color-accent-soft);
-}
 
 .project-gallery-viewport {
   min-width: 0;
-  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  overflow: visible;
 }
 
 .project-gallery-grid {
@@ -380,18 +336,15 @@
   }
 }
 
-.project-gallery-viewport {
-  position: relative;
-}
 
 .gallery-edge-control {
-  position: absolute;
+  position: static;
   z-index: 5;
-  top: 50%;
   width: 3.2rem;
   height: 3.2rem;
   display: grid;
   place-items: center;
+  flex: 0 0 auto;
   border: 1px solid rgba(116, 242, 189, 0.38);
   border-radius: 50%;
   color: var(--color-accent);
@@ -400,7 +353,7 @@
   font-family: var(--font-mono);
   font-size: 1rem;
   cursor: pointer;
-  transform: translateY(-50%);
+  transform: none;
   transition:
     opacity 180ms ease,
     border-color 180ms ease,
@@ -409,18 +362,10 @@
   backdrop-filter: blur(14px);
 }
 
-.gallery-edge-control-previous {
-  left: 0.8rem;
-}
-
-.gallery-edge-control-next {
-  right: 0.8rem;
-}
-
 .gallery-edge-control:not(:disabled):hover {
   border-color: var(--color-accent);
   background: rgba(15, 45, 35, 0.96);
-  transform: translateY(-50%) scale(1.06);
+  transform: scale(1.06);
 }
 
 .gallery-edge-control:disabled {
@@ -436,41 +381,6 @@
     width: 2.8rem;
     height: 2.8rem;
   }
-
-  .gallery-edge-control-previous {
-    left: 0.45rem;
-  }
-
-  .gallery-edge-control-next {
-    right: 0.45rem;
-  }
-}
-
-.project-gallery-viewport {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1rem;
-  overflow: visible;
-}
-
-.gallery-edge-control {
-  position: static;
-  top: auto;
-  right: auto;
-  left: auto;
-  flex: 0 0 auto;
-  transform: none;
-}
-
-.gallery-edge-control-previous,
-.gallery-edge-control-next {
-  right: auto;
-  left: auto;
-}
-
-.gallery-edge-control:not(:disabled):hover {
-  transform: scale(1.06);
 }
 
 @media (max-width: 600px) {
@@ -479,10 +389,6 @@
   }
 }
 
-.gallery-image {
-  height: 22rem;
-  min-height: 22rem;
-}
 
 .gallery-card-desktop .gallery-image {
   padding: 0.75rem;
@@ -543,10 +449,6 @@
 }
 
 @media (max-width: 600px) {
-  .gallery-image {
-    height: 19rem;
-    min-height: 19rem;
-  }
 
   .gallery-card-mobile .gallery-image,
   .gallery-card-document .gallery-image {
