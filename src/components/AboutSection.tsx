@@ -1,4 +1,5 @@
-﻿import './AboutSection.css'
+﻿import { withBaseUrl } from '../utils/withBaseUrl'
+import './AboutSection.css'
 
 function AboutSection() {
   return (
@@ -6,7 +7,7 @@ function AboutSection() {
       <div className="about-visual">
         <div className="portrait-frame">
           <img
-            src="/images/profile/diogo-zarpelao.jpg"
+            src={withBaseUrl('images/profile/diogo-zarpelao.jpg')}
             alt="Retrato profissional de Diogo Zarpelão"
             loading="lazy"
           />

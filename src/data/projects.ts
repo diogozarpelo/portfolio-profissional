@@ -1,4 +1,6 @@
-﻿export type Project = {
+﻿import { withBaseUrl } from '../utils/withBaseUrl'
+
+export type Project = {
   slug: string
   title: string
   category: string
@@ -25,7 +27,7 @@ export const projects: Project[] = [
       'Plataforma de captação, organização e entrega de leads criada com arquitetura full-stack e foco em confiabilidade.',
     description:
       'Uma solução white-label que transforma formulários e diferentes pontos de entrada em um fluxo estruturado de leads, com processamento assíncrono, simulação de integrações e uma base preparada para evolução.',
-    image: '/images/projects/leadflow-home.webp',
+    image: withBaseUrl('images/projects/leadflow-home.webp'),
     imageAlt: 'Página inicial responsiva do projeto LeadFlow',
     technologies: [
       'Laravel',
@@ -56,7 +58,7 @@ export const projects: Project[] = [
       'Sistema local para criar, calcular e gerenciar orçamentos de uma vidraçaria com regras reais de negócio.',
     description:
       'Aplicação desenvolvida para organizar clientes, materiais, medidas, componentes e valores, reduzindo cálculos manuais e centralizando todo o processo de orçamento.',
-    image: '/images/projects/braga-budget-home.png',
+    image: withBaseUrl('images/projects/braga-budget-home.png'),
     imageAlt: 'Painel inicial do sistema Braga Budget',
     technologies: ['Python', 'Flask', 'SQLite', 'Jinja', 'HTML', 'CSS'],
     highlights: [
@@ -80,7 +82,7 @@ export const projects: Project[] = [
       'Aplicativo Android offline para organizar e acompanhar leilões de jogos e consoles retrô.',
     description:
       'Uma ferramenta criada para substituir anotações dispersas por uma visão clara dos leilões ativos, prazos, valores, condições dos itens e resultados.',
-    image: '/images/projects/leiloes-retro-games-home.png',
+    image: withBaseUrl('images/projects/leiloes-retro-games-home.png'),
     imageAlt: 'Tela de leilões ativos do aplicativo Leilões RetroGames',
     technologies: [
       'Kotlin',
@@ -109,7 +111,7 @@ export const projects: Project[] = [
       'Aplicativo Android offline para organizar contas mensais de maneira simples, rápida e compartilhável.',
     description:
       'Uma solução de uso familiar com perfis locais, visão mensal e acompanhamento de contas pendentes e pagas, sem exigir login ou conexão com a internet.',
-    image: '/images/projects/contas-da-casa-overview.png',
+    image: withBaseUrl('images/projects/contas-da-casa-overview.png'),
     imageAlt: 'Visão mensal de contas no aplicativo Contas da Casa',
     technologies: [
       'Kotlin',
