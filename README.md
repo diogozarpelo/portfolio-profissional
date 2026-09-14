@@ -1,7 +1,7 @@
 # Portfólio Profissional
 
 <p align="center">
-  Portfólio profissional de desenvolvimento de software, reunindo projetos web e Android, estudos de caso e soluções desenvolvidas a partir de necessidades reais.
+  Site-Portfólio profissional de desenvolvimento de software, reunindo projetos web e Android, estudos de caso e soluções desenvolvidas a partir de necessidades reais.
 </p>
 
 <p align="center">
