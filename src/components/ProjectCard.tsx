@@ -20,6 +20,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       <Link
         className="project-image-link"
         to={`/projetos/${project.slug}`}
+        tabIndex={-1}
         aria-label={`Conhecer o projeto ${project.title}`}
       >
         <div className="project-image-frame">
