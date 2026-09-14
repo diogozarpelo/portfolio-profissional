@@ -42,6 +42,10 @@ function ProjectPage() {
 
   return (
     <div id="inicio" className={`project-page project-page-${project.slug}`}>
+      <a className="skip-link" href="#conteudo-principal">
+        Pular para o conteúdo
+      </a>
+
       <header className="project-page-header">
         <Link className="brand" to="/" aria-label="Voltar para a página inicial">
           <span className="brand-mark" aria-hidden="true">
@@ -56,7 +60,7 @@ function ProjectPage() {
         </Link>
       </header>
 
-      <main>
+      <main id="conteudo-principal" tabIndex={-1}>
         <section className="project-hero">
           <div className="project-hero-copy">
             <div className="project-page-meta">

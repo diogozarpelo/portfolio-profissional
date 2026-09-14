@@ -19,6 +19,10 @@ function HomePage() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#conteudo-principal">
+        Pular para o conteúdo
+      </a>
+
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Ir para o início">
           <span className="brand-mark" aria-hidden="true">
@@ -71,7 +75,7 @@ function HomePage() {
         </button>
       </header>
 
-      <main>
+      <main id="conteudo-principal" tabIndex={-1}>
         <section className="hero-section" id="inicio">
           <div className="hero-content">
             <div className="availability">
