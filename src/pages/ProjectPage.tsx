@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react'
+﻿import { useEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { findProjectBySlug } from '../data/projects'
 import { projectGalleries } from '../data/projectGalleries'
@@ -7,6 +7,7 @@ import SiteFooter from '../components/SiteFooter'
 import './ProjectPage.css'
 
 function ProjectPage() {
+  const mainRef = useRef<HTMLElement>(null)
   const { slug } = useParams()
   const project = slug ? findProjectBySlug(slug) : undefined
   const galleryImages = project
@@ -29,6 +30,7 @@ function ProjectPage() {
 
     if (project) {
       document.title = `${project.title} | Diogo Zarpelão`
+      mainRef.current?.focus({ preventScroll: true })
     }
 
     return () => {
@@ -60,7 +62,7 @@ function ProjectPage() {
         </Link>
       </header>
 
-      <main id="conteudo-principal" tabIndex={-1}>
+      <main id="conteudo-principal" ref={mainRef} tabIndex={-1} aria-labelledby="project-title">
         <section className="project-hero">
           <div className="project-hero-copy">
             <div className="project-page-meta">
@@ -70,7 +72,7 @@ function ProjectPage() {
             </div>
 
             <p className="section-kicker">Estudo de caso</p>
-            <h1>{project.title}</h1>
+            <h1 id="project-title">{project.title}</h1>
             <p className="project-lead">{project.description}</p>
 
             <div className="project-page-actions">
