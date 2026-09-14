@@ -1,4 +1,5 @@
-﻿import ProjectCard from '../components/ProjectCard'
+﻿import { useState } from 'react'
+import ProjectCard from '../components/ProjectCard'
 import AboutSection from '../components/AboutSection'
 import SkillsSection from '../components/SkillsSection'
 import ContactSection from '../components/ContactSection'
@@ -14,6 +15,8 @@ const technologies = [
 ]
 
 function HomePage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -24,17 +27,48 @@ function HomePage() {
           <span className="brand-name">Diogo Zarpelão</span>
         </a>
 
-        <nav className="main-navigation" aria-label="Navegação principal">
-          <a href="#inicio">Início</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#tecnologias">Tecnologias</a>
-          <a href="#sobre">Sobre</a>
+        <nav
+          className={`main-navigation${isMobileMenuOpen ? ' main-navigation-open' : ''}`}
+          id="main-navigation"
+          aria-label="Navegação principal"
+        >
+          <a href="#inicio" onClick={() => setIsMobileMenuOpen(false)}>
+            Início
+          </a>
+          <a href="#projetos" onClick={() => setIsMobileMenuOpen(false)}>
+            Projetos
+          </a>
+          <a href="#tecnologias" onClick={() => setIsMobileMenuOpen(false)}>
+            Tecnologias
+          </a>
+          <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)}>
+            Sobre
+          </a>
         </nav>
 
-        <a className="header-contact" href="#contato">
+        <a
+          className="header-contact"
+          href="#contato"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
           Vamos conversar
           <span aria-hidden="true">↗</span>
         </a>
+
+        <button
+          className="mobile-menu-toggle"
+          type="button"
+          aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-controls="main-navigation"
+          aria-expanded={isMobileMenuOpen}
+          onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
+        >
+          <span className="mobile-menu-icon" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
+        </button>
       </header>
 
       <main>
